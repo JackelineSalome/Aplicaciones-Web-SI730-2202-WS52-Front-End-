@@ -10,9 +10,12 @@ import ColorPicker from 'primevue/colorpicker';
 import Calendar from 'primevue/calendar';
 import RadioButton from 'primevue/radiobutton';
 import Checkbox from 'primevue/checkbox';
+import FileUpload from 'primevue/fileupload';
+import Textarea from 'primevue/textarea';
 import i18n from './locales/i18n';
 import PrimeVue from 'primevue/config';
 //import { createI18n } from 'vue-i18n'; //importa
+import 'primeicons/primeicons.css';
 import 'primevue/resources/themes/saga-blue/theme.css' //theme
 import 'primevue/resources/primevue.min.css' //core css
 import 'primeicons/primeicons.css'
@@ -33,5 +36,7 @@ app.component('ColorPicker', ColorPicker);
 app.component('Calendar', Calendar);
 app.component('RadioButton', RadioButton);
 app.component('Checkbox', Checkbox);
+app.component('FileUpload', FileUpload);
+app.component('Textarea', Textarea);
 
 app.mount('#app')

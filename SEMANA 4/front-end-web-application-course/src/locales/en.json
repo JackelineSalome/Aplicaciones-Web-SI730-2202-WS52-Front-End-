@@ -10,6 +10,10 @@
   "state": "State*",
   "afectoimpuesto": "Subject to tax*",
   "descripcion": "Description",
+  "fotos": "Photos",
+  "active": "Active",
+  "suspended": "Suspended",
+  "debaja": "Low",
   "greeting": "Hello, {name}",
   "product": "no product  |  one product  |  products"
 }

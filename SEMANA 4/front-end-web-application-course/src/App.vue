@@ -3,6 +3,9 @@ export default {
   data() {
     return {
       value:"",
+      date:null,
+      state: null,
+      checked:false,
       categories: [
         { name: "Lácteos", code: "LA" },
         { name: "Verduras", code: "VE" },
@@ -10,20 +13,6 @@ export default {
       ],
     };
   },
-  data1() {
-    return {
-      state: null,
-      categories: [
-        {name: 'Activo', key: 'Activo'},
-        {name: 'Suspendido', key: 'Suspendido'},
-        {name: 'De Baja', key: 'De Baja'},
-      ],
-      selectedCategory: null
-    }
-  },
-  created() {
-    this.selectedCategory = this.categories[1].name;
-  }
 };
 </script>
 
@@ -46,12 +35,12 @@ export default {
 
       <div class="field grid">
         <label for="name" class="col-3 mb-2" >{{ $t("name") }}</label>
-        <div class="9"> <InputText id="nombre" class="w-full" /></div>
+        <div class="9"> <InputText placeholder="Solo letras y números" id="nombre" class="w-full" /></div>
       </div>
 
       <div class="field grid">
         <label for="abbreviation" class="col-3 mb-2">{{ $t("abbreviation") }}</label>
-        <div class="9"> <InputMask id="abbreviation" v-model="value" mask="aaaaaaaaaa" class="w-full" /></div>
+        <div class="9"> <InputMask id="abbreviation" placeholder="Solo letras" v-model="value2" mask="aaaaaaaaaa" class="w-full" /></div>
       </div>
 
       <div class="field grid">
@@ -67,7 +56,7 @@ export default {
 
       <div class="field grid">
         <label for="RUC" class="col-3 mb-2">{{ $t("RUC") }}</label>
-        <div class="9"> <InputMask id="RUC" v-model="value" mask="a9-99999a" /></div>
+        <div class="9"> <InputMask id="RUC" placeholder="Solo números" v-model="value1" mask="99999999999" /></div>
       </div>
 
       <div class="field grid">
@@ -76,23 +65,25 @@ export default {
       </div>
 
       <div class="field grid">
-        <label for="color" class="col-3 mb-2">{{ $t("color") }}</label>
+        <label for="color1" class="col-3 mb-2">{{ $t("color") }}</label>
         <div class="9"> <ColorPicker v-model="color1" /></div>
       </div>
 
       <div class="field grid">
         <label for="fecha" class="col-3 mb-2">{{ $t("fecha") }}</label>
-        <div class="9"> <Calendar inputId="fecha" v-model="date3" :showIcon="true" /></div>
+        <div class="9"> <Calendar inputId="fecha" v-model="date" :showIcon="true" /></div>
       </div>
 
       <div class="field grid">
         <label for="state" class="col-3 mb-2">{{ $t("state") }}</label>
-        <div class="9"> <div v-for="category of categories" :key="category.key" class="field grid">
-          <RadioButton :inputId="category.key" name="category" :value="category.name" v-model="selectedCategory" />
-            <div class="col-2">
-              <label :for="category.key">{{category.name}}</label>
-            </div>
-          </div>
+        <div class="9">
+
+          <RadioButton name="state1" value="Activo" v-model="state" />
+          <label class="col-2" for="state1">{{$t("active")}}</label>
+          <RadioButton name="state2" value="Suspendido" v-model="state" />
+          <label class="col-2" for="state2">{{$t("suspended")}}</label>
+          <RadioButton name="state3" value="DeBaja" v-model="state" />
+          <label for="state3">{{$t("debaja")}}</label>
         </div>
       </div>
 
@@ -102,8 +93,23 @@ export default {
       </div>
 
       <div class="field grid">
+        <label for="fotos" class="col-3 mb-2">{{ $t("fotos") }}</label>
+        <div class="9"><FileUpload chooseLabel="Subir" mode="basic" name="demo[]" url="./upload" accept="image/*" /></div>
+        <i class="pi pi-image col-2" style="font-size: 2.5rem"></i>
+      </div>
+
+      <div class="field grid">
         <label for="descripcion" class="col-3 mb-2">{{ $t("descripcion") }}</label>
-        <div class="9"> <Checkbox v-model="checked" :binary="true" /></div>
+        <div class="9"> <Textarea v-model="value3" rows="5" cols="30" /></div>
+      </div>
+
+      <div class="field grid">
+        <div class="col-5 p-0">
+          <Button label="Grabar"  />
+        </div>
+        <div class="col-2">
+          <Button label="Limpiar" />
+        </div>
       </div>
 
       <h2>
