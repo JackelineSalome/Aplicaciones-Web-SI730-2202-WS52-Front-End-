@@ -1,0 +1,19 @@
+{
+  "code":"Kod*",
+  "name":"İsim*",
+  "abbreviation": "Kısaltma",
+  "category": "Kategori*",
+  "RUC": "RUC tedarikçisi*",
+  "price": "Fiyat*",
+  "color": "Etiket rengi",
+  "fecha": "Tarih*",
+  "state": "Şart",
+  "afectoimpuesto": "Vergiye tabi*",
+  "descripcion": "Tanım",
+  "fotos": "Fotoğraflar",
+  "active": "Aktif",
+  "suspended": "askıya almak",
+  "debaja": "düşük",
+  "greeting": "Merhaba, {name}",
+  "product": "ürün yok  |  ürün  |  Ürün:% s"
+}
