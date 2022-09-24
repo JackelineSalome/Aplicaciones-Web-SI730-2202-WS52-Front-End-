@@ -21,7 +21,7 @@ export default {
   <form>
     <div class="card">
       <h1>
-        {{ $t("greeting", {name :"Profe" } ) }}
+        {{ $t("greeting", {name :"Usuario" } ) }}
       </h1>
 
       <div class="field grid">
